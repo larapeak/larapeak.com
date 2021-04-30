@@ -11,25 +11,27 @@
         </div>
 
         <div class="grid grid-cols-1 gap-16 sm:grid-cols-2">
-            <div>
-                <div class="h-3 bg-gradient-to-r from-green-300 to-indigo-400 rounded-t-md"></div>
-                <div class="my-3">
-                    <p class="mb-3 text-sm font-semibold text-gray-400">
-                        Laravel - 30-04-2021
-                    </p>
+            @foreach ($posts as $post)
+                <div>
+                    <div class="h-3 bg-gradient-to-r from-green-300 to-indigo-400 rounded-t-md"></div>
+                    <div class="my-3">
+                        <p class="mb-3 text-sm font-semibold text-gray-400">
+                            Laravel - 30-04-2021
+                        </p>
 
-                    <h2 class="mb-3 text-3xl font-semibold">
-                        Blog title
-                    </h2>
-                    <p class="mb-3">
-                        description
-                    </p>
+                        <h2 class="mb-3 text-3xl font-semibold">
+                            {{ $post->title }}
+                        </h2>
+                        <p class="mb-3">
+                            description
+                        </p>
 
-                    <a href="/" class="font-bold text-blue-600">
-                        Read article
-                    </a>
+                        <a href="/" class="font-bold text-blue-600">
+                            Read article
+                        </a>
+                    </div>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </x-app-layout>
