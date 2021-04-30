@@ -9,6 +9,6 @@ class BladeComponentServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        Blade::component('layouts.app', 'app-layout');
+        Blade::component('front.layouts.app', 'app-layout');
     }
 }
