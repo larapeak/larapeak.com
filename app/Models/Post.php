@@ -13,9 +13,21 @@ class Post extends Model
     use HasFactory;
     use HasSlug;
 
+    public $dates = ['published_at'];
+
     public function getExcerptAttribute()
     {
         return Str::limit($this->body, 200);
+    }
+
+    public function scopePublished($query)
+    {
+        return $query->where('published_at', '!=', null);
+    }
+
+    public function scopeRecent($query)
+    {
+        return $query->orderBy('published_at', 'desc');
     }
 
     public function user()

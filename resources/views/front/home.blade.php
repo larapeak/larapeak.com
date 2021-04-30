@@ -16,7 +16,7 @@
                     <div class="h-3 bg-gradient-to-r from-green-300 to-indigo-400 rounded-t-md"></div>
                     <div class="my-3">
                         <p class="mb-3 text-sm font-semibold text-gray-400">
-                            Laravel - 30-04-2021
+                            {{ $post->published_at->format('M-Y') }}
                         </p>
 
                         <h2 class="mb-3 text-3xl font-semibold">
