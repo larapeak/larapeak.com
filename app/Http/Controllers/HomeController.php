@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function __invoke()
     {
-        $posts = Post::paginate(6);
+        $posts = Post::limit(6)->get();
 
         return view('front.home', [
             'posts' => $posts

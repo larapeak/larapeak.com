@@ -23,7 +23,7 @@
                             {{ $post->title }}
                         </h2>
                         <p class="mb-3">
-                            description
+                            {{ $post->excerpt }}
                         </p>
 
                         <a href="/" class="font-bold text-blue-600">
