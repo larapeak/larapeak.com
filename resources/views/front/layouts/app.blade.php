@@ -27,7 +27,7 @@
             <nav class="sticky top-0 z-40 bg-white bg-opacity-50 border-b border-gray-100 app-header dark:bg-gray-900 dark:border-gray-800">
                 <div class="container flex items-center justify-between px-4 py-4 mx-auto">
                     <div>
-                        <a href="/" class="text-xl font-bold underline transition duration-300 hover:text-blue-600">
+                        <a href="{{ route('home') }}" class="text-xl font-bold underline transition duration-300 hover:text-blue-600">
                             Larapeak
                         </a>
                     </div>
