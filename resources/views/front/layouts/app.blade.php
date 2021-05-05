@@ -33,7 +33,7 @@
                     </div>
                     <div>
                         <div class="flex items-center h-10 font-semibold transition duration-300 border-b-4 border-gray-900 border-opacity-0 hover:border-opacity-100 dark:text-gray-400 dark:hover:border-gray-400">
-                            <a href="/">
+                            <a href="{{ route('blog.index') }}">
                                 Blog
                             </a>
                         </div>

@@ -8,11 +8,11 @@ class BlogController extends Controller
 {
     public function index()
     {
-        //
+        return "blog home";
     }
 
     public function show($id)
     {
-        //
+        return "blog show";
     }
 }
