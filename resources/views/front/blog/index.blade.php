@@ -1,16 +1,12 @@
 <x-app-layout title="Home">
-    <div class="max-w-6xl mx-auto">
-        <div class="mb-12 sm:mb-24">
+    <div class="max-w-4xl mx-auto">
+        <div class="mb-6 sm:mb-12">
             <h1 class="text-5xl font-bold">
-                Hi There 👋!
+                All Blog Posts
             </h1>
-            <p class="mt-3 text-lg">
-                Welcome on the <span class="font-medium text-blue-600 underline">Larapeak</span> blog! <br>
-                On this blog you can find tutorials about Laravel, Tailwindcss and more!
-            </p>
         </div>
 
-        <div class="grid grid-cols-1 gap-16 sm:grid-cols-2">
+        <div class="grid grid-cols-1 gap-16">
             @foreach ($posts as $post)
                 <div>
                     <div class="h-3 bg-gradient-to-r from-green-300 to-indigo-400 rounded-t-md"></div>
