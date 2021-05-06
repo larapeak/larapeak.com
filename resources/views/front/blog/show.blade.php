@@ -12,7 +12,7 @@
 
         <div class="mb-6 sm:mb-12">
             <p class="mb-3 font-semibold text-gray-400">
-                Article last updated: {{ $post->created_at }}
+                Published: {{ $post->published_at->format('M d, Y') }}
             </p>
             <h1 class="text-5xl font-bold">
                 {{ $post->title }}
