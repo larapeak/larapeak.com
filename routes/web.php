@@ -3,9 +3,10 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BlogController;
 
+use App\Http\Controllers\Admin\PostController;
+
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,6 @@ Route::prefix('blog')->group(function () {
     Route::get('{post}', [BlogController::class, 'show'])->name('blog.show');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/dashboard', [PostController::class, 'index'])->name('dashboard');
+});
