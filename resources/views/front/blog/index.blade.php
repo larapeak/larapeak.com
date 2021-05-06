@@ -22,7 +22,7 @@
                             {{ $post->excerpt }}
                         </p>
 
-                        <a href="/" class="font-bold text-blue-600">
+                        <a href="{{ route('blog.show', $post->slug) }}" class="font-bold text-blue-600">
                             Read article
                         </a>
                     </div>

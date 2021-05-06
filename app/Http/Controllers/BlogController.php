@@ -16,8 +16,10 @@ class BlogController extends Controller
         ]);
     }
 
-    public function show($id)
+    public function show(Post $post)
     {
-        return "blog show";
+        return view('front.blog.show', [
+            'post' => $post
+        ]);
     }
 }

@@ -42,4 +42,9 @@ class Post extends Model
             ->saveSlugsTo('slug')
             ->doNotGenerateSlugsOnUpdate();
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
