@@ -2,7 +2,7 @@
     <app-layout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                Dashboard
+                Posts
             </h2>
         </template>
 
