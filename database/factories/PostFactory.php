@@ -13,6 +13,7 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence,
+            'user_id' => 1,
             'body' => $this->faker->paragraph,
             'published_at' => $this->faker->boolean(50) ? $this->faker->dateTimeBetween('-5 years') : null,
             'published' => true,
