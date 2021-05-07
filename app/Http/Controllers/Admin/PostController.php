@@ -12,10 +12,11 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::recent()->get();
+        $posts = Post::sort(request())->get();
 
         return Inertia::render('Dashboard', [
             'posts' => $posts,
+            'filters' => request(),
         ]);
     }
 

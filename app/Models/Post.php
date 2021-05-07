@@ -7,11 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use App\Helpers\HasSorting;
 
 class Post extends Model
 {
     use HasFactory;
     use HasSlug;
+    use HasSorting;
+
+    public $sortables = ['id', 'title', 'published'];
 
     public $dates = ['published_at'];
 
