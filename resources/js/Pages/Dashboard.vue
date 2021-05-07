@@ -8,11 +8,19 @@
 
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <div class="flex items-center justify-end mb-4">
+                    <inertia-link href="/test">
+                        <jet-button>
+                            New post
+                        </jet-button>
+                    </inertia-link>
+                </div>
+
                 <div class="overflow-x-auto bg-white rounded-md shadow">
                     <table class="w-full whitespace-nowrap">
                         <tr class="font-bold text-left">
                             <th v-on:click="sort('id')" class="px-6 py-4">
-                                <div class="flex items-center">
+                                <div class="flex items-center cursor-pointer">
                                     #
                                     <div v-if="field == 'id'" class="ml-2 text-gray-500">
                                         <span v-if="direction == 'asc'">
@@ -29,7 +37,7 @@
                                 </div>
                             </th>
                             <th v-on:click="sort('title')" class="px-6 py-4">
-                                <div class="flex items-center">
+                                <div class="flex items-center cursor-pointer">
                                     Title
                                     <div v-if="field == 'title'" class="ml-2 text-gray-500">
                                         <span v-if="direction == 'asc'">
@@ -46,7 +54,7 @@
                                 </div>
                             </th>
                             <th v-on:click="sort('published')" class="px-6 py-4">
-                                <div class="flex items-center">
+                                <div class="flex items-center cursor-pointer">
                                     Status
                                     <div v-if="field == 'published'" class="ml-2 text-gray-500">
                                         <span v-if="direction == 'asc'">
@@ -100,10 +108,12 @@
 
 <script>
     import AppLayout from '@/Layouts/AppLayout'
+    import JetButton from '@/Shared/Button'
 
     export default {
         components: {
             AppLayout,
+            JetButton,
         },
 
         props: {
