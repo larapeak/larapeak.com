@@ -71,34 +71,45 @@
                                 </div>
                             </th>
                         </tr>
-                        <tr v-for="post in posts" :key="post.id" class="hover:bg-gray-100 focus-within:bg-gray-100">
-                            <td class="border-t">
-                                <inertia-link class="flex items-center px-6 py-4" :href="route('dashboard')">
-                                    {{ post.id }}
-                                </inertia-link>
-                            </td>
-                            <td class="border-t">
-                                <inertia-link class="flex items-center px-6 py-4" :href="route('dashboard')">
-                                    {{ post.title }}
-                                </inertia-link>
-                            </td>
-                            <td class="border-t">
-                                <inertia-link class="flex items-center px-6 py-4" :href="route('dashboard')">
-                                    <div v-if="post.published == 1" class="flex items-center px-2 py-1 text-xs text-green-900 bg-green-200 rounded-full">
-                                        <div class="w-2 h-2 mr-1 bg-green-500 rounded-full"></div>
-                                        Online
+                        <tbody v-if="!loading">
+                            <tr v-for="post in posts" :key="post.id" class="hover:bg-gray-100 focus-within:bg-gray-100">
+                                <td class="border-t">
+                                    <inertia-link class="flex items-center px-6 py-4" :href="route('dashboard')">
+                                        {{ post.id }}
+                                    </inertia-link>
+                                </td>
+                                <td class="border-t">
+                                    <inertia-link class="flex items-center px-6 py-4" :href="route('dashboard')">
+                                        {{ post.title }}
+                                    </inertia-link>
+                                </td>
+                                <td class="border-t">
+                                    <inertia-link class="flex items-center px-6 py-4" :href="route('dashboard')">
+                                        <div v-if="post.published == 1" class="flex items-center px-2 py-1 text-xs text-green-900 bg-green-200 rounded-full">
+                                            <div class="w-2 h-2 mr-1 bg-green-500 rounded-full"></div>
+                                            Online
+                                        </div>
+                                        <div v-if="post.published == 0" class="flex items-center px-2 py-1 text-xs text-yellow-900 bg-yellow-200 rounded-full">
+                                            <div class="w-2 h-2 mr-1 bg-yellow-500 rounded-full"></div>
+                                            Draft
+                                        </div>
+                                        <!-- <div v-if="post.published == 1" class="flex items-center px-2 py-1 text-xs text-red-900 bg-red-200 rounded-full">
+                                            <div class="w-2 h-2 mr-1 bg-red-500 rounded-full"></div>
+                                            Deleted
+                                        </div> -->
+                                    </inertia-link>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody v-if="loading">
+                            <tr v-for="n in 10" :key="n">
+                                <td class="border-t" colspan="3">
+                                    <div class="flex items-center px-6 py-4">
+                                        <span class="w-full h-4 bg-gray-200 rounded-full animate-pulse"></span>
                                     </div>
-                                    <div v-if="post.published == 0" class="flex items-center px-2 py-1 text-xs text-yellow-900 bg-yellow-200 rounded-full">
-                                        <div class="w-2 h-2 mr-1 bg-yellow-500 rounded-full"></div>
-                                        Draft
-                                    </div>
-                                    <!-- <div v-if="post.published == 1" class="flex items-center px-2 py-1 text-xs text-red-900 bg-red-200 rounded-full">
-                                        <div class="w-2 h-2 mr-1 bg-red-500 rounded-full"></div>
-                                        Deleted
-                                    </div> -->
-                                </inertia-link>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -125,11 +136,14 @@
             return {
                 field: this.filters.field,
                 direction: this.filters.direction,
+                loading: false,
             }
         },
 
         methods: {
             sort(field) {
+                this.loading = true;
+
                 this.field = field;
                 this.direction = this.direction === 'asc' ? 'desc' : 'asc';
 
