@@ -56,7 +56,7 @@
                 this.sortId = field;
                 this.direction = this.direction === 'asc' ? 'desc' : 'asc';
 
-                this.$inertia.get(this.route('dashboard'), { 'field': this.sortId, 'direction': this.direction });
+                this.$inertia.get(this.route('posts.index'), { 'field': this.sortId, 'direction': this.direction });
             }
         }
     }

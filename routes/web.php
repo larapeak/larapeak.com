@@ -26,6 +26,6 @@ Route::prefix('blog')->group(function () {
     Route::get('{post}', [BlogController::class, 'show'])->name('blog.show');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('/dashboard', [PostController::class, 'index'])->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->group(function () {
+    Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 });
