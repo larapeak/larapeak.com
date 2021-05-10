@@ -9,7 +9,7 @@
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="flex items-center justify-end mb-4">
-                    <inertia-link href="/test">
+                    <inertia-link :href="route('posts.create')">
                         <jet-button>
                             New post
                         </jet-button>

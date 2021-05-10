@@ -14,7 +14,7 @@ class PostController extends Controller
     {
         $posts = Post::sort(request())->get();
 
-        return Inertia::render('Dashboard', [
+        return Inertia::render('Posts/Index', [
             'posts' => $posts,
             'filters' => request(),
         ]);
@@ -22,7 +22,7 @@ class PostController extends Controller
 
     public function create()
     {
-        //
+        return Inertia::render('Posts/Create');
     }
 
     public function store(Request $request)
@@ -30,22 +30,17 @@ class PostController extends Controller
         //
     }
 
-    // public function show($id)
-    // {
-    //     // 
-    // }
-
-    public function edit($id)
+    public function edit(Post $post)
     {
         //
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
         //
     }
 
-    public function destroy($id)
+    public function destroy(Post $post)
     {
         //
     }
