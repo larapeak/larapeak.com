@@ -27,5 +27,8 @@ Route::prefix('blog')->group(function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->group(function () {
+    // Post
     Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+    Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+    Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 });
