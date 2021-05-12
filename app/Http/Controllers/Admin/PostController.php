@@ -38,12 +38,19 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        //
+        return Inertia::render('Posts/Edit', [
+            'post' => $post,
+        ]);
     }
 
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
-        //
+        $post->title = $request->title;
+        $post->body = $request->body;
+        
+        $post->save();
+
+        return redirect()->route('posts.index');
     }
 
     public function destroy(Post $post)
