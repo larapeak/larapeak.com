@@ -26,8 +26,8 @@
 </template>
 
 <script>
-    import TableBody from '@/shared/Table/Body'
-    import TableLoading from '@/Shared/Table/Loading'
+    import TableBody from '@/shared/Tables/Body'
+    import TableLoading from '@/Shared/Tables/Loading'
 
     export default {
         components: {
