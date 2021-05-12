@@ -20,7 +20,15 @@
                         Save
                     </jet-button>
                 </div>
-                <markdown-editor v-model="form.body" />
+                
+                <div>
+                    <jet-label 
+                        class="mb-3"
+                        for="title" 
+                        value="Blog Post Body:" 
+                    />
+                    <markdown-editor v-model="form.body" />
+                </div>
             </div>
         </div>
     </app-layout>
@@ -30,6 +38,7 @@
     import AppLayout from '@/Layouts/AppLayout'
     import JetButton from '@/Shared/Button'
     import JetInput from '@/Shared/Forms/Input'
+    import JetLabel from '@/Shared/Label'
     import MarkdownEditor from '@/shared/Forms/MarkdownEditor'
 
     export default {
@@ -37,6 +46,7 @@
             AppLayout,
             JetButton,
             JetInput,
+            JetLabel,
             MarkdownEditor,
         },
 
