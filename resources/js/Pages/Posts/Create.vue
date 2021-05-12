@@ -29,7 +29,7 @@
 <script>
     import AppLayout from '@/Layouts/AppLayout'
     import JetButton from '@/Shared/Button'
-    import JetInput from '@/Shared/Input'
+    import JetInput from '@/Shared/Forms/Input'
     import MarkdownEditor from '@/shared/Forms/MarkdownEditor'
 
     export default {

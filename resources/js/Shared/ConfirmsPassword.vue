@@ -13,7 +13,7 @@
                 {{ content }}
 
                 <div class="mt-4">
-                    <jet-input type="password" class="mt-1 block w-3/4" placeholder="Password"
+                    <jet-input type="password" class="block w-3/4 mt-1" placeholder="Password"
                                 ref="password"
                                 v-model="form.password"
                                 @keyup.enter="confirmPassword" />
@@ -38,7 +38,7 @@
 <script>
     import JetButton from './Button'
     import JetDialogModal from './DialogModal'
-    import JetInput from './Input'
+    import JetInput from './Forms/Input'
     import JetInputError from './InputError'
     import JetSecondaryButton from './SecondaryButton'
 

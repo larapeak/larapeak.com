@@ -56,7 +56,7 @@
     import JetActionSection from '@/Shared/ActionSection'
     import JetDialogModal from '@/Shared/DialogModal'
     import JetDangerButton from '@/Shared/DangerButton'
-    import JetInput from '@/Shared/Input'
+    import JetInput from '@/Shared/Forms/Input'
     import JetInputError from '@/Shared/InputError'
     import JetSecondaryButton from '@/Shared/SecondaryButton'
 

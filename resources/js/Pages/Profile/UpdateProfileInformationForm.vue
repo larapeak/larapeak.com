@@ -71,7 +71,7 @@
 <script>
     import JetButton from '@/Shared/Button'
     import JetFormSection from '@/Shared/FormSection'
-    import JetInput from '@/Shared/Input'
+    import JetInput from '@/Shared/Forms/Input'
     import JetInputError from '@/Shared/InputError'
     import JetLabel from '@/Shared/Label'
     import JetActionMessage from '@/Shared/ActionMessage'
