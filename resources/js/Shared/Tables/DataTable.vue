@@ -19,7 +19,7 @@
                 </div>
             </th>
         </tr>
-        <table-body :tabledata="tableData" />
+        <table-body :tabledata="tableData" :slug="slug" />
     </table>
     
     <table-loading v-if="loading" />
@@ -39,6 +39,7 @@
             tableData: Array,
             fields: Array,
             filters: Object,
+            slug: String,
         },
 
         data() {

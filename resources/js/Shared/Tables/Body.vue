@@ -1,17 +1,17 @@
 <template>
     <tr v-for="entry in tabledata" :key="entry.id" class="hover:bg-gray-100 focus-within:bg-gray-100">
         <td class="border-t">
-            <inertia-link class="flex items-center px-6 py-4" :href="route('posts.index')">
+            <inertia-link class="flex items-center px-6 py-4" :href="route('posts.edit', (slug == 'id') ? entry.id : entry.slug)">
                 {{ entry.id }}
             </inertia-link>
         </td>
         <td class="border-t">
-            <inertia-link class="flex items-center px-6 py-4" :href="route('posts.index')">
+            <inertia-link class="flex items-center px-6 py-4" :href="route('posts.edit', (slug == 'id') ? entry.id : entry.slug)">
                 {{ entry.title }}
             </inertia-link>
         </td>
         <td class="border-t">
-            <inertia-link class="flex items-center px-6 py-4" :href="route('posts.index')">
+            <inertia-link class="flex items-center px-6 py-4" :href="route('posts.edit', (slug == 'id') ? entry.id : entry.slug)">
                 <div v-if="entry.published == 1" class="flex items-center px-2 py-1 text-xs text-green-900 bg-green-200 rounded-full">
                     <div class="w-2 h-2 mr-1 bg-green-500 rounded-full"></div>
                     Online
@@ -33,6 +33,10 @@
 export default {
     props: {
         tabledata: Array,
+        slug: {
+            default: 'id',
+            type: String,
+        },
     }
 }
 </script>

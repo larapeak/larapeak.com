@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="overflow-x-auto bg-white rounded-md shadow">
-                    <data-table :tableData="posts" :fields="tableFields" :filters="filters"/>
+                    <data-table :tableData="posts" :fields="tableFields" :filters="filters" slug />
                 </div>
             </div>
         </div>
