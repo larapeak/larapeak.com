@@ -15,8 +15,8 @@ class Post extends Model
     use HasSlug;
     use HasSorting;
 
+    public $fillable = ['title', 'body'];
     public $sortables = ['id', 'title', 'published'];
-
     public $dates = ['published_at'];
 
     public function getExcerptAttribute()
