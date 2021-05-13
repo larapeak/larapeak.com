@@ -16,7 +16,7 @@ class Post extends Model
     use HasSlug;
     use HasSorting;
 
-    public $fillable = ['title', 'body'];
+    public $fillable = ['title', 'body', 'published_at', 'published'];
     public $sortables = ['id', 'title', 'published'];
     public $dates = ['published_at'];
 
