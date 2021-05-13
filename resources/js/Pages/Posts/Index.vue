@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="overflow-x-auto bg-white rounded-md shadow">
-                    <data-table :tableData="posts" :fields="tableFields" :filters="filters" slug />
+                    <data-table :tableData="posts" :tableFields="tableFields" :filters="filters" slug />
                 </div>
             </div>
         </div>
@@ -45,16 +45,19 @@
             return {
                 tableFields: [
                     {
-                        id: 'id',
-                        name: '#',
-                    },
-                    {
                         id: 'title',
-                        name: 'title',
+                        name: 'Title',
+                        type: 'text',
                     },
                     {
                         id: 'published',
                         name: 'Status',
+                        type: 'status',
+                    },
+                    {
+                        id: 'published_at',
+                        name: 'Publish Date',
+                        type: 'date',
                     }
                 ],
             }

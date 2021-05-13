@@ -1,7 +1,7 @@
 <template>
     <table  v-if="!loading" class="w-full whitespace-nowrap">
         <tr class="font-bold text-left">
-            <th v-for="field in fields" :key="field.id" v-on:click="sort(field.id)" class="px-6 py-4">
+            <th v-for="field in tableFields" :key="field.id" v-on:click="sort(field.id)" class="px-6 py-4">
                 <div class="flex items-center cursor-pointer">
                     {{ field.name }}
                     <div v-if="sortId == field.id" class="ml-2 text-gray-500">
@@ -19,7 +19,7 @@
                 </div>
             </th>
         </tr>
-        <table-body :tabledata="tableData" :slug="slug" />
+        <table-body :tableFields="tableFields" :tabledata="tableData" :slug="slug" />
     </table>
     
     <table-loading v-if="loading" />
@@ -37,7 +37,7 @@
 
         props: {
             tableData: Array,
-            fields: Array,
+            tableFields: Array,
             filters: Object,
             slug: String,
         },
