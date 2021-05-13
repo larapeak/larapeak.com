@@ -7,7 +7,6 @@
                     v-model="form.title"
                     placeholder="Title..." 
                     type="text"
-                    autofocus 
                 />
                 <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Save

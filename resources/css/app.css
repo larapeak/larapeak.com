@@ -2,6 +2,8 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import 'hljs.css';
+
 .app-header{
     backdrop-filter: blur(12px);
 }

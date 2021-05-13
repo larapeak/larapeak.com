@@ -21,7 +21,7 @@
         </div>
 
         <div class="mx-auto mb-6 prose prose-xl max-w-none prose-blue sm:mb-12">
-            {{ $post->body }}
+            {!! $post->formatted_text !!}
         </div>
 
         <!-- <nuxt-content

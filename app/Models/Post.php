@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use App\Helpers\HasSorting;
+use App\Services\CommonMark\CommonMark;
 
 class Post extends Model
 {
@@ -45,6 +46,12 @@ class Post extends Model
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug')
             ->doNotGenerateSlugsOnUpdate();
+    }
+
+    public function getFormattedTextAttribute()
+    {
+        $body = $this->body;
+        return CommonMark::convertToHtml($body);
     }
 
     public function getRouteKeyName()
