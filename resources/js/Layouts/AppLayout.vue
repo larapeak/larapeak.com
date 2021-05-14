@@ -10,7 +10,7 @@
                         <div class="flex">
                             <!-- Logo -->
                             <div class="flex items-center flex-shrink-0">
-                                <inertia-link :href="route('posts.index')">
+                                <inertia-link :href="route('dashboard')">
                                     <jet-application-mark class="block w-auto h-9" />
                                 </inertia-link>
                             </div>

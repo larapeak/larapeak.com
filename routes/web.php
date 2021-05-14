@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BlogController;
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\PostController;
 
@@ -28,6 +29,8 @@ Route::prefix('blog')->group(function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+
     // User
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
