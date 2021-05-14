@@ -1,25 +1,30 @@
 <template>
     <form @submit.prevent="submit()">
+        <div class="flex justify-end">
+            <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                Save
+            </jet-button>
+        </div>
+
         <div class="mb-6">
-            <div class="flex items-center">
+            <div>
+                <jet-label class="mb-3" value="Title:" />
                 <jet-input 
-                    class="block w-full mt-1 mr-4" 
+                    class="block w-full mt-1 mr-4"
                     v-model="form.title"
+                    :error="form.errors.title"
                     placeholder="Title..." 
                     type="text"
                 />
-                <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Save
-                </jet-button>
             </div>
             
             <jet-input-error :message="form.errors.title" class="mt-1" />
         </div>
         
         <div>
-            <jet-label class="mb-3" value="Blog Post Body:" />
-            <jet-input-error :message="form.errors.body" />
+            <jet-label class="mb-3" value="Body:" />
             <markdown-editor v-model="form.body" />
+            <jet-input-error :message="form.errors.body" class="mt-1" />
         </div>
     </form>
 </template>
