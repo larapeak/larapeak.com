@@ -50,7 +50,7 @@ class PostController extends Controller
         
         $post->save();
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.edit', $post->slug);
     }
 
     public function destroy(Post $post)

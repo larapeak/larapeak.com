@@ -1,6 +1,10 @@
 <template>
     <form @submit.prevent="submit()">
-        <div class="flex justify-end">
+        <div class="flex items-center justify-end">
+            <jet-action-message :on="form.recentlySuccessful" class="mr-3">
+                Saved.
+            </jet-action-message>
+            
             <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                 Save
             </jet-button>
@@ -37,6 +41,7 @@
     import JetInputError from '@/Shared/InputError'
     import JetLabel from '@/Shared/Label'
     import MarkdownEditor from '@/shared/Forms/MarkdownEditor'
+    import JetActionMessage from '@/Shared/ActionMessage'
 
     export default {
         props: ['formMethod', 'formRoute', 'post'],
@@ -47,6 +52,7 @@
             JetInputError,
             JetLabel,
             MarkdownEditor,
+            JetActionMessage,
         },
 
         setup (props) {
