@@ -20,16 +20,6 @@ class UserController extends Controller
         ]);
     }
 
-    public function create()
-    {
-        //
-    }
-
-    public function store(PostRequest $request)
-    {
-        //
-    }
-
     public function edit(Post $post)
     {
         //
