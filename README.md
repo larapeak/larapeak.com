@@ -1,4 +1,4 @@
-# larap[eak.com]
+# larappeak.com
 
 ## Security Vulnerabilities
 
