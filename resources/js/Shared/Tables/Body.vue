@@ -2,13 +2,13 @@
     <tr v-for="entry in tabledata" :key="entry.id" class="hover:bg-gray-100 focus-within:bg-gray-100">
         <td v-for="field in tableFields" :key="field.id" class="border-t">
             <div v-if="field.type == 'text'">
-                <inertia-link class="flex items-center px-6 py-4" :href="route('posts.edit', (slug == 'id') ? entry.id : entry.slug)">
+                <inertia-link class="flex items-center px-6 py-4" :href="route(model + '.edit', (slug == 'id') ? entry.id : entry.slug)">
                     {{ entry[field.id] }}
                 </inertia-link>
             </div>
 
             <div v-if="field.type == 'date'">
-                <inertia-link class="flex items-center px-6 py-4" :href="route('posts.edit', (slug == 'id') ? entry.id : entry.slug)">
+                <inertia-link class="flex items-center px-6 py-4" :href="route(model + '.edit', (slug == 'id') ? entry.id : entry.slug)">
                     {{ formatDate(entry[field.id]) }}
                 </inertia-link>
             </div>
@@ -34,6 +34,7 @@
         props: {
             tabledata: Array,
             tableFields: Array,
+            model: String,
             slug: {
                 default: 'id',
                 type: String,

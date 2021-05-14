@@ -19,7 +19,7 @@
                 </div>
             </th>
         </tr>
-        <table-body :tableFields="tableFields" :tabledata="tableData" :slug="slug" />
+        <table-body :tableFields="tableFields" :tabledata="tableData" :model="model" :slug="slug" />
     </table>
     
     <table-loading v-if="loading" />
@@ -40,6 +40,7 @@
             tableFields: Array,
             filters: Object,
             slug: String,
+            model: String,
         },
 
         data() {
@@ -57,7 +58,7 @@
                 this.sortId = field;
                 this.direction = this.direction === 'asc' ? 'desc' : 'asc';
 
-                this.$inertia.get(this.route('posts.index'), { 'field': this.sortId, 'direction': this.direction });
+                this.$inertia.get(this.route(this.model + '.index'), { 'field': this.sortId, 'direction': this.direction });
             }
         }
     }

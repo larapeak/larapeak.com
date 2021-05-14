@@ -2,22 +2,22 @@
     <app-layout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                All Posts
+                All Users
             </h2>
         </template>
 
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="flex items-center justify-end mb-4">
-                    <inertia-link :href="route('posts.create')">
+                    <inertia-link :href="route('users.create')">
                         <jet-button>
-                            New post
+                            New user
                         </jet-button>
                     </inertia-link>
                 </div>
 
                 <div class="overflow-x-auto bg-white rounded-md shadow">
-                    <data-table :tableData="posts" :tableFields="tableFields" model="posts" :filters="filters" slug />
+                    <data-table :tableData="users" :tableFields="tableFields" model="users" :filters="filters" />
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
         },
 
         props: {
-            posts: Array,
+            users: Array,
             filters: Object,
         },
 
@@ -45,18 +45,18 @@
             return {
                 tableFields: [
                     {
-                        id: 'title',
-                        name: 'Title',
+                        id: 'name',
+                        name: 'Name',
                         type: 'text',
                     },
                     {
-                        id: 'published',
-                        name: 'Status',
-                        type: 'status',
+                        id: 'email',
+                        name: 'Email',
+                        type: 'text',
                     },
                     {
-                        id: 'published_at',
-                        name: 'Publish Date',
+                        id: 'created_at',
+                        name: 'Signup Date',
                         type: 'date',
                     }
                 ],
