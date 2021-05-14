@@ -10,8 +10,8 @@
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="grid grid-cols-2 gap-16">
                     <div class="relative p-6 overflow-hidden text-white bg-green-500 rounded-md">
-                        <span class="text-5xl font-black">1</span>
-                        <h2 class="text-3xl font-extrabold">Users</h2>
+                        <span class="text-5xl font-black">{{ users_count }}</span>
+                        <h2 class="text-3xl font-extrabold">User(s)</h2>
 
                         <div class="absolute -right-12 -top-8">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-auto h-40 text-green-100 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="relative p-6 text-white bg-blue-500 rounded-md">
-                        <span class="text-5xl font-black">12</span>
+                        <span class="text-5xl font-black">{{ posts_count }}</span>
                         <h2 class="text-3xl font-extrabold">Posts</h2>
 
                         <div class="absolute -right-12 -top-8">
@@ -43,6 +43,8 @@
     export default {
         components: {
             AppLayout,
-        }
+        },
+
+        props: ['users_count', 'posts_count']
     }
 </script>
