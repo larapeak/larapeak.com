@@ -6,7 +6,7 @@
             </h2>
         </template>
 
-        <div class="px-6 py-12 sm:px-0">
+        <div class="px-4 py-12 sm:px-0">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="grid grid-cols-2 gap-16">
                     <div class="relative p-6 overflow-hidden text-white bg-green-500 rounded-md">

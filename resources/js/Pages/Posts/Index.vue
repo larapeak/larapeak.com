@@ -6,7 +6,7 @@
             </h2>
         </template>
 
-        <div class="py-12">
+        <div class="px-4 py-12 sm:px-0">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="flex items-center justify-end mb-4">
                     <inertia-link :href="route('posts.create')">
