@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Post;
+use App\Actions\PublishPostAction;
 
 use Auth;
 use App\Http\Controllers\Controller;
@@ -33,7 +34,7 @@ class PostController extends Controller
                     ->posts()
                     ->create($request->validated());
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.edit', $post->slug);
     }
 
     public function edit(Post $post)
@@ -56,5 +57,12 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+    public function publish(Post $post, PublishPostAction $publishPostAction)
+    {
+        $publishPostAction->execute($post);
+
+        return redirect()->route('posts.edit', $post->slug);
     }
 }

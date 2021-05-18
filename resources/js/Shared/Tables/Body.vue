@@ -14,14 +14,16 @@
             </div>
 
             <div v-if="field.type == 'status'">
-                <div v-if="entry[field.id] == 1" class="flex items-center px-2 py-1 text-xs text-green-900 bg-green-200 rounded-full w-min">
-                    <div class="w-2 h-2 mr-1 bg-green-500 rounded-full"></div>
-                    Online
-                </div>
-                <div v-if="entry[field.id] == 0" class="flex items-center px-2 py-1 text-xs text-yellow-900 bg-yellow-200 rounded-full w-min">
-                    <div class="w-2 h-2 mr-1 bg-yellow-500 rounded-full"></div>
-                    Draft
-                </div>
+                <inertia-link class="flex items-center px-6 py-4" :href="route(model + '.edit', (slug == 'id') ? entry.id : entry.slug)">
+                    <div v-if="entry[field.id] == 1" class="flex items-center px-2 py-1 text-xs text-green-900 bg-green-200 rounded-full w-min">
+                        <div class="w-2 h-2 mr-1 bg-green-500 rounded-full"></div>
+                        Online
+                    </div>
+                    <div v-if="entry[field.id] == 0" class="flex items-center px-2 py-1 text-xs text-yellow-900 bg-yellow-200 rounded-full w-min">
+                        <div class="w-2 h-2 mr-1 bg-yellow-500 rounded-full"></div>
+                        Draft
+                    </div>
+                </inertia-link>
             </div>
         </td>
     </tr>
