@@ -45,7 +45,7 @@
     import JetAuthenticationCard from '@/Shared/AuthenticationCard'
     import JetAuthenticationCardLogo from '@/Shared/AuthenticationCardLogo'
     import JetButton from '@/Shared/Button'
-    import JetInput from '@/Shared/Forms/Input'
+    import JetInput from '@/Shared/FormFields/Input'
     import JetCheckbox from '@/Shared/Checkbox'
     import JetLabel from '@/Shared/Label'
     import JetValidationErrors from '@/Shared/ValidationErrors'

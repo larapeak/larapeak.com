@@ -28,7 +28,7 @@
 
 <script>        
     import AppLayout from '@/Layouts/AppLayout'
-    import PostForm from '@/pages/Posts/_Form'
+    import PostForm from '@/Shared/Forms/PostForm'
 
     export default {
         props: ['post'],

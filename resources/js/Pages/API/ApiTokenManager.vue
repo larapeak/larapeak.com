@@ -171,7 +171,7 @@
     import JetDangerButton from '@/Shared/DangerButton'
     import JetDialogModal from '@/Shared/DialogModal'
     import JetFormSection from '@/Shared/FormSection'
-    import JetInput from '@/Shared/Forms/Input'
+    import JetInput from '@/Shared/FormFields/Input'
     import JetCheckbox from '@/Shared/Checkbox'
     import JetInputError from '@/Shared/InputError'
     import JetLabel from '@/Shared/Label'

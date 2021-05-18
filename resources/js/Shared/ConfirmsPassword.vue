@@ -38,7 +38,7 @@
 <script>
     import JetButton from './Button'
     import JetDialogModal from './DialogModal'
-    import JetInput from './Forms/Input'
+    import JetInput from './FormFields/Input'
     import JetInputError from './InputError'
     import JetSecondaryButton from './SecondaryButton'
 
