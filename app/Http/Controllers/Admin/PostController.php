@@ -34,7 +34,7 @@ class PostController extends Controller
                     ->posts()
                     ->create($request->validated());
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.edit', $post->slug);
     }
 
     public function edit(Post $post)
