@@ -37,10 +37,10 @@
     import { useForm } from '@inertiajs/inertia-vue3'
 
     import JetButton from '@/Shared/Button'
-    import JetInput from '@/Shared/Forms/Input'
+    import JetInput from '@/Shared/FormFields/Input'
     import JetInputError from '@/Shared/InputError'
     import JetLabel from '@/Shared/Label'
-    import MarkdownEditor from '@/shared/Forms/MarkdownEditor'
+    import MarkdownEditor from '@/shared/FormFields/MarkdownEditor'
     import JetActionMessage from '@/Shared/ActionMessage'
 
     export default {

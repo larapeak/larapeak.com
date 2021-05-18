@@ -44,7 +44,7 @@
     import JetActionMessage from '@/Shared/ActionMessage'
     import JetButton from '@/Shared/Button'
     import JetFormSection from '@/Shared/FormSection'
-    import JetInput from '@/Shared/Forms/Input'
+    import JetInput from '@/Shared/FormFields/Input'
     import JetInputError from '@/Shared/InputError'
     import JetLabel from '@/Shared/Label'
 
