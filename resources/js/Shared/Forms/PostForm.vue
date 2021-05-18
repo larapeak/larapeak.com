@@ -40,7 +40,7 @@
     import JetInput from '@/Shared/FormFields/Input'
     import JetInputError from '@/Shared/InputError'
     import JetLabel from '@/Shared/Label'
-    import MarkdownEditor from '@/shared/FormFields/MarkdownEditor'
+    import MarkdownEditor from '@/Shared/FormFields/MarkdownEditor'
     import JetActionMessage from '@/Shared/ActionMessage'
 
     export default {
