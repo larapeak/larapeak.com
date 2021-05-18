@@ -36,7 +36,7 @@
 <script>
     import { useForm } from '@inertiajs/inertia-vue3'
 
-    import JetButton from '@/Shared/Button'
+    import JetButton from '@/Shared/Buttons/Button'
     import JetInput from '@/Shared/FormFields/Input'
     import JetInputError from '@/Shared/InputError'
     import JetLabel from '@/Shared/Label'

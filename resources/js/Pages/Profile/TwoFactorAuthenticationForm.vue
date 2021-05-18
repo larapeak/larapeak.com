@@ -88,10 +88,10 @@
 
 <script>
     import JetActionSection from '@/Shared/ActionSection'
-    import JetButton from '@/Shared/Button'
+    import JetButton from '@/Shared/Buttons/Button'
     import JetConfirmsPassword from '@/Shared/ConfirmsPassword'
-    import JetDangerButton from '@/Shared/DangerButton'
-    import JetSecondaryButton from '@/Shared/SecondaryButton'
+    import JetDangerButton from '@/Shared/Buttons/DangerButton'
+    import JetSecondaryButton from '@/Shared/Buttons/SecondaryButton'
 
     export default {
         components: {

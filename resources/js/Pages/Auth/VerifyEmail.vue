@@ -27,7 +27,7 @@
 <script>
     import JetAuthenticationCard from '@/Shared/AuthenticationCard'
     import JetAuthenticationCardLogo from '@/Shared/AuthenticationCardLogo'
-    import JetButton from '@/Shared/Button'
+    import JetButton from '@/Shared/Buttons/Button'
 
     export default {
         components: {

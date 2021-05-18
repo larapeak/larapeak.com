@@ -26,7 +26,7 @@
 
 <script>
     import AppLayout from '@/Layouts/AppLayout'
-    import JetButton from '@/Shared/Button'
+    import JetButton from '@/Shared/Buttons/Button'
     import DataTable from '@/Shared/Tables/DataTable'
 
     export default {

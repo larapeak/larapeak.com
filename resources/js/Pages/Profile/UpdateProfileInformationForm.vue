@@ -69,13 +69,13 @@
 </template>
 
 <script>
-    import JetButton from '@/Shared/Button'
+    import JetButton from '@/Shared/Buttons/Button'
     import JetFormSection from '@/Shared/FormSection'
     import JetInput from '@/Shared/FormFields/Input'
     import JetInputError from '@/Shared/InputError'
     import JetLabel from '@/Shared/Label'
     import JetActionMessage from '@/Shared/ActionMessage'
-    import JetSecondaryButton from '@/Shared/SecondaryButton'
+    import JetSecondaryButton from '@/Shared/Buttons/SecondaryButton'
 
     export default {
         components: {
