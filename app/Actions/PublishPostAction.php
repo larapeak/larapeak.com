@@ -4,7 +4,7 @@ namespace App\Actions;
 
 use App\Models\Post;
 
-class PublishPost
+class PublishPostAction
 {
     public function execute(Post $post)
     {
