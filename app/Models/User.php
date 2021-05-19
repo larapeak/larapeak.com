@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-use App\Helpers\HasSorting;
+use Larapeak\InertiajsDataTables\HasSorting;
 
 class User extends Authenticatable
 {
