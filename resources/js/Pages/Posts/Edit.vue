@@ -43,7 +43,7 @@
 <script>     
     import AppLayout from '@/Layouts/AppLayout'
     import PostForm from '@/Shared/Forms/PostForm'
-    import JetSecondaryButton from '@/Shared/SecondaryButton'
+    import JetSecondaryButton from '@/Shared/Buttons/SecondaryButton'
 
     export default {
         props: ['post'],

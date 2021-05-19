@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
-use App\Helpers\HasSorting;
+use Larapeak\InertiajsDataTables\HasSorting;
 use App\Services\CommonMark\CommonMark;
 
 class Post extends Model

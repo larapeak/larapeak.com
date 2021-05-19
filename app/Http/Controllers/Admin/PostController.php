@@ -33,6 +33,8 @@ class PostController extends Controller
         $post = Auth::user()
                     ->posts()
                     ->create($request->validated());
+        
+        session()->flash('flash.banner', 'Post is created!');
 
         return redirect()->route('posts.edit', $post->slug);
     }

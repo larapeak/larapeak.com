@@ -1,5 +1,5 @@
 @extends('front.layouts.error', [
-    'title' => 'Page not found',
+    'title' => 'Hello, is it me youre looking for?',
     'errorCode' => '404',
     'homeLink' => true,
 ])

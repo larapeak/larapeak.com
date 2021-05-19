@@ -166,16 +166,16 @@
 <script>
     import JetActionMessage from '@/Shared/ActionMessage'
     import JetActionSection from '@/Shared/ActionSection'
-    import JetButton from '@/Shared/Button'
+    import JetButton from '@/Shared/Buttons/Button'
     import JetConfirmationModal from '@/Shared/ConfirmationModal'
-    import JetDangerButton from '@/Shared/DangerButton'
+    import JetDangerButton from '@/Shared/Buttons/DangerButton'
     import JetDialogModal from '@/Shared/DialogModal'
     import JetFormSection from '@/Shared/FormSection'
     import JetInput from '@/Shared/FormFields/Input'
     import JetCheckbox from '@/Shared/Checkbox'
     import JetInputError from '@/Shared/InputError'
     import JetLabel from '@/Shared/Label'
-    import JetSecondaryButton from '@/Shared/SecondaryButton'
+    import JetSecondaryButton from '@/Shared/Buttons/SecondaryButton'
     import JetSectionBorder from '@/Shared/SectionBorder'
 
     export default {

@@ -36,11 +36,11 @@
 </template>
 
 <script>
-    import JetButton from './Button'
+    import JetButton from './Buttons/Button'
     import JetDialogModal from './DialogModal'
     import JetInput from './FormFields/Input'
     import JetInputError from './InputError'
-    import JetSecondaryButton from './SecondaryButton'
+    import JetSecondaryButton from './Buttons/SecondaryButton'
 
     export default {
         emits: ['confirmed'],

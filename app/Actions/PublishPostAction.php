@@ -12,5 +12,7 @@ class PublishPostAction
         $post->published_at = now();
 
         $post->save();
+
+        session()->flash('flash.banner', 'Post is published!');
     }
 }

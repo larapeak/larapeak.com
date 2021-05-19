@@ -55,10 +55,10 @@
 <script>
     import JetActionSection from '@/Shared/ActionSection'
     import JetDialogModal from '@/Shared/DialogModal'
-    import JetDangerButton from '@/Shared/DangerButton'
+    import JetDangerButton from '@/Shared/Buttons/DangerButton'
     import JetInput from '@/Shared/FormFields/Input'
     import JetInputError from '@/Shared/InputError'
-    import JetSecondaryButton from '@/Shared/SecondaryButton'
+    import JetSecondaryButton from '@/Shared/Buttons/SecondaryButton'
 
     export default {
         components: {

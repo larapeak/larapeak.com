@@ -26,8 +26,8 @@
 
 <script>
     import AppLayout from '@/Layouts/AppLayout'
-    import JetButton from '@/Shared/Button'
-    import DataTable from '@/Shared/Tables/DataTable'
+    import JetButton from '@/Shared/Buttons/Button'
+    import DataTable from '@/Shared/DataTables/DataTable'
 
     export default {
         components: {
