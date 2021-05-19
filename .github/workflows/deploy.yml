@@ -1,0 +1,85 @@
+name: Deploy
+
+on:
+  workflow_dispatch
+    
+jobs:
+          
+  deploy:
+   
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: ⬇️ Website down
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            cd github/larapeak.com
+            php artisan down
+    
+      - name: 🌀 Clone repository
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            cd github/larapeak.com
+            git pull
+            
+      - name: 🎻 Run composer
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            cd github/larapeak.com
+            composer install --optimize-autoloader --no-dev
+            
+      - name: 🌅 Generate assets
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            cd github/larapeak.com
+            npm install
+            npm run prod
+            php artisan clear-compiled
+            
+      - name: 🙈 Migrate database
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            cd github/larapeak.com
+            php artisan migrate --force
+            
+      - name: 🙏 Bless release
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            cd github/larapeak.com
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
+            
+      - name: ⬆️ Website up
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            cd github/larapeak.com
+            php artisan up
