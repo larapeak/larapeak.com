@@ -5,23 +5,27 @@ on:
     branches:
       - master
     
-jobs:
-          
+jobs:     
   deploy:
-   
+    name: Deploy
     runs-on: ubuntu-latest
+    env:
+      repository: 'larapeak/larapeak.com'
+      host: 'baseDir': '/github/larapeak.com'
+      newReleaseName: '${{ github.run_id }}'
     
     steps:
-      - name: ⬇️ Website down
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          password: ${{ secrets.SSH_PASSWORD }}
-          script: |
-            cd github/larapeak.com
-            php artisan down
+      - name: 🌍 Set environment variables
+        run: |
+            echo "releasesDir=${{ env.baseDir }}/releases" >> $GITHUB_ENV
     
+      - name: 🌍 Set environment variables (part 2)
+        run: |
+            echo "releasesDir=${{ env.baseDir }}/releases" >> $GITHUB_ENV
+            echo "persistentDir=${{ env.baseDir }}/persistent" >> $GITHUB_ENV
+            echo "currentDir=${{ env.baseDir }}/current" >> $GITHUB_ENV
+            echo "newReleaseDir=${{ env.releasesDir }}/${{ env.newReleaseName }}" >> $GITHUB_ENV
+      
       - name: 🌀 Clone repository
         uses: appleboy/ssh-action@master
         with:
@@ -29,8 +33,29 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            cd github/larapeak.com
-            git pull
+            [ -d ${{ env.releasesDir }} ] || mkdir ${{ env.releasesDir }}
+            [ -d ${{ env.persistentDir }}/uploads ] || mkdir ${{ env.persistentDir }}/uploads
+            [ -d ${{ env.persistentDir }}/storage ] || mkdir ${{ env.persistentDir }}/storage
+
+            cd ${{ env.releasesDir }}
+
+            # Create new directory
+            mkdir ${{ env.newReleaseDir }}
+
+            # Clone directory
+            git clone --depth 1 git@github.com:${{ env.repository }} ${{ env.newReleaseName }}
+
+            # Configure sparse checkout
+            cd ${{ env.newReleaseDir }}
+            git config code.sparsecheckout true
+            echo "*" > .git/info/sparse-checkout
+            echo "!storage" >> .git/info/sparse-checkout
+            echo "!public/build" >> .git/info/sparse-checkout
+            git read-tree -mu HEAD
+
+            # Mark release
+            cd ${{ env.newReleaseDir }}
+            echo "${{ env.newReleaseName }}" > public/release-name.txt
             
       - name: 🎻 Run composer
         uses: appleboy/ssh-action@master
@@ -39,8 +64,8 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            cd github/larapeak.com
-            composer install --optimize-autoloader --no-dev
+            cd ${{ env.newReleaseDir }}
+            composer install --prefer-dist --no-scripts --no-dev -q -o
             
       - name: 🌅 Generate assets
         uses: appleboy/ssh-action@master
@@ -49,10 +74,41 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            cd github/larapeak.com
+            cd ${{ env.newReleaseDir }}
             npm install
             npm run prod
             php artisan clear-compiled
+
+      - name: 🔗 Update symlinks
+        uses: appleboy/ssh-action@master
+          with:
+            host: ${{ secrets.SSH_HOST }}
+            username: ${{ secrets.SSH_USERNAME }}
+            password: ${{ secrets.SSH_PASSWORD }}
+            script: |
+                # Remove the storage directory and replace with persistent data
+                rm -rf ${{ env.newReleaseDir }}/storage
+                cd ${{ env.newReleaseDir }};
+                ln -nfs ${{ env.baseDir }}/persistent/storage storage;
+
+                # Remove the public/uploads directory and replace with persistent data
+                rm -rf ${{ env.newReleaseDir }}/public/uploads
+                cd ${{ env.newReleaseDir }}
+                ln -nfs ${{ env.baseDir }}/persistent/uploads public/uploads
+                
+                # Symlink the og images to the public directory
+                rm -rf ${{ env.newReleaseDir }}/public/og-images
+                cd ${{ env.newReleaseDir }}
+                ln -nfs ${{ env.baseDir }}/persistent/storage/og-images ${{ env.newReleaseDir }}/public/og-images
+                
+                # Import the environment config
+                cd ${{ env.newReleaseDir }}
+                ln -nfs ${{ env.baseDir }}/.env .env
+                
+                # Symlink the persistent fonts to the public directory
+                cd ${{ env.baseDir }}/persistent/fonts
+                git pull origin master
+                ln -nfs ${{ env.baseDir }}/persistent/fonts ${{ env.newReleaseDir }}/public/fonts
             
       - name: 🙈 Migrate database
         uses: appleboy/ssh-action@master
@@ -61,7 +117,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            cd github/larapeak.com
+            cd ${{ env.newReleaseDir }}
             php artisan migrate --force
             
       - name: 🙏 Bless release
@@ -71,17 +127,11 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            cd github/larapeak.com
+            cd ${{ env.newReleaseDir }}
+            ln -nfs ${{ env.newReleaseDir }} ${{ env.currentDir }};
+            php artisan config:clear
             php artisan config:cache
+            php artisan route:clear
             php artisan route:cache
+            php artisan view:clear
             php artisan view:cache
-            
-      - name: ⬆️ Website up
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          password: ${{ secrets.SSH_PASSWORD }}
-          script: |
-            cd github/larapeak.com
-            php artisan up
