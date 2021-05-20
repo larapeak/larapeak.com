@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       repository: 'larapeak/larapeak.com'
-      baseDir: 'github/larapeak.com'
+      baseDir: 'github/larapeak'
       newReleaseName: '${{ github.run_id }}'
     
     steps:
@@ -108,7 +108,7 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
             cd ${{ env.newReleaseDir }}
-            ln -nfs ${{ env.newReleaseDir }} ${{ env.currentDir }};
+            ln -nfs ${{ env.newReleaseDir }} /${{ env.currentDir }};
             php artisan config:clear
             php artisan config:cache
             php artisan route:clear
