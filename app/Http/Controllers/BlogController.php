@@ -9,7 +9,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $posts = Post::published()->recent()->get();
+        $posts = Post::published()->recent()->simplePaginate(10);
 
         return view('front.blog.index', [
             'posts' => $posts
