@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       repository: 'larapeak/larapeak.com'
-      baseDir: '/github/larapeak.com'
+      baseDir: 'github/larapeak.com'
       newReleaseName: '${{ github.run_id }}'
     
     steps:
