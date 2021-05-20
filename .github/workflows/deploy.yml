@@ -85,22 +85,10 @@ jobs:
 
               # Remove the public/uploads directory and replace with persistent data
               rm -rf ${{ env.newReleaseDir }}/public/uploads
-              cd ${{ env.newReleaseDir }}
               ln -nfs ${{ env.baseDir }}/persistent/uploads public/uploads
               
-              # Symlink the og images to the public directory
-              rm -rf ${{ env.newReleaseDir }}/public/og-images
-              cd ${{ env.newReleaseDir }}
-              ln -nfs ${{ env.baseDir }}/persistent/storage/og-images ${{ env.newReleaseDir }}/public/og-images
-              
               # Import the environment config
-              cd ${{ env.newReleaseDir }}
               ln -nfs ${{ env.baseDir }}/.env .env
-              
-              # Symlink the persistent fonts to the public directory
-              cd ${{ env.baseDir }}/persistent/fonts
-              git pull origin master
-              ln -nfs ${{ env.baseDir }}/persistent/fonts ${{ env.newReleaseDir }}/public/fonts
             
       - name: 🙈 Migrate database
         uses: appleboy/ssh-action@master
