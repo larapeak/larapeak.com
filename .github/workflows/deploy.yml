@@ -42,16 +42,12 @@ jobs:
             git clone --depth 1 https://github.com/${{ env.repository }}.git ${{ env.newReleaseName }}
 
             # Configure sparse checkout
-            cd ${{ env.newReleaseDir }}
+            cd ${{ env.newReleaseName }}
             git config code.sparsecheckout true
             echo "*" > .git/info/sparse-checkout
             echo "!storage" >> .git/info/sparse-checkout
             echo "!public/build" >> .git/info/sparse-checkout
             git read-tree -mu HEAD
-
-            # Mark release
-            cd ${{ env.newReleaseDir }}
-            echo "${{ env.newReleaseName }}" > public/release-name.txt
             
       - name: 🎻 Run composer
         uses: appleboy/ssh-action@master
