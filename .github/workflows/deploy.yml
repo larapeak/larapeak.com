@@ -36,7 +36,7 @@ jobs:
             cd ${{ env.releasesDir }}
 
             # Create new directory
-            mkdir ${{ env.newReleaseDir }}
+            mkdir ${{ env.newReleaseName }}
 
             # Clone directory
             git clone --depth 1 git@github.com:${{ env.repository }} ${{ env.newReleaseName }}
