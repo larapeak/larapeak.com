@@ -35,6 +35,18 @@ jobs:
             cd ${{ env.baseDir }}/releases/${{ env.releaseName }}
             composer install --optimize-autoloader --no-dev
 
+      - name: 🌅 Generate assets
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            cd ${{ env.baseDir }}/releases/${{ env.releaseName }}
+            npm install
+            npm run prod
+            php artisan clear-compiled
+
       - name: 🔗 Update symlinks
         uses: appleboy/ssh-action@master
         with:
@@ -49,6 +61,16 @@ jobs:
 
             # Import the environment config
             ln -s ~/github/larapeak/persistent/.env .env
+
+      - name: 📀 Backup database
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            cd ${{ env.baseDir }}/releases/${{ env.releaseName }}
+            php artisan backup:run
 
       - name: 🙈 Migrate database
         uses: appleboy/ssh-action@master
@@ -70,7 +92,9 @@ jobs:
             cd ${{ env.baseDir }}
             ln -s ~/github/larapeak/releases/${{ env.releaseName }} current
             cd current
+            php artisan config:clear
             php artisan config:cache
+            php artisan route:clear
             php artisan route:cache
             php artisan view:cache
 
