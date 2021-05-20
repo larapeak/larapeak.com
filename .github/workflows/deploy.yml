@@ -42,6 +42,11 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
+            # Remove the storage directory and replace with persistent data
+            rm -rf ${{ env.baseDir }}/releases/${{ env.releaseName }}
+            cd ${{ env.baseDir }}/releases/${{ env.releaseName }}
+            ln -s ~/github/larapeak/persistent/uploads uploads
+
             # Import the environment config
             cd ${{ env.baseDir }}/releases/${{ env.releaseName }}
             ln -s ~/github/larapeak/persistent/.env .env
