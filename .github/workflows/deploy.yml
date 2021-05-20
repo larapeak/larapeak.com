@@ -43,7 +43,7 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
             # Import the environment config
-            cd cd ${{ env.baseDir }}/releases/${{ env.releaseName }}
+            cd ${{ env.baseDir }}/releases/${{ env.releaseName }}
             ln -s ~/github/larapeak/persistent/.env .env
             
       - name: 🙏 Bless release
