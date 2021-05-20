@@ -33,5 +33,11 @@
                 </div>
             @endforeach
         </div>
+
+        <div class="flex justify-center mt-12">
+            <a class="px-4 py-2 text-lg font-medium text-gray-800 transition-transform duration-300 transform rounded-md bg-gradient-to-r from-green-300 to-indigo-400 hover:scale-105" href="{{ route('blog.index') }}">
+                Load More Posts
+            </a>
+        </div>
     </div>
 </x-app-layout>
