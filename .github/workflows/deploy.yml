@@ -73,3 +73,14 @@ jobs:
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
+
+      - name: 🚾 Clean up old releases
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            cd ${{ env.baseDir }}/releases
+            ls -dt ${{ env.baseDir }}/releases/* | tail -n +4 | xargs -d "\n" sudo chown -R forge .;
+            ls -dt ${{ env.baseDir }}/releases/* | tail -n +4 | xargs -d "\n" rm -rf;
