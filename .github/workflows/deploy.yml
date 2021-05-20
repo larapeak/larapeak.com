@@ -5,23 +5,15 @@ on:
     branches:
       - master
     
-jobs:
-          
+jobs:    
   deploy:
-   
+    name: Deploy
     runs-on: ubuntu-latest
-    
-    steps:
-      - name: ⬇️ Website down
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          password: ${{ secrets.SSH_PASSWORD }}
-          script: |
-            cd github/larapeak.com
-            php artisan down
-    
+    env:
+      baseDir: '~/github/larapeak'
+      releaseName: '${{ github.run_id }}'
+
+    steps:    
       - name: 🌀 Clone repository
         uses: appleboy/ssh-action@master
         with:
@@ -29,8 +21,9 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            cd github/larapeak.com
-            git pull
+            cd ${{ env.baseDir }}/releases
+            mkdir ${{ env.releaseName }}
+            git clone --depth 1 https://github.com/larapeak/larapeak.com.git ${{ env.releaseName }}
             
       - name: 🎻 Run composer
         uses: appleboy/ssh-action@master
@@ -39,20 +32,8 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            cd github/larapeak.com
+            cd ${{ env.baseDir }}/releases/${{ env.releaseName }}
             composer install --optimize-autoloader --no-dev
-            
-      - name: 🌅 Generate assets
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          password: ${{ secrets.SSH_PASSWORD }}
-          script: |
-            cd github/larapeak.com
-            npm install
-            npm run prod
-            php artisan clear-compiled
             
       - name: 🙈 Migrate database
         uses: appleboy/ssh-action@master
@@ -61,7 +42,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            cd github/larapeak.com
+            cd ${{ env.baseDir }}
             php artisan migrate --force
             
       - name: 🙏 Bless release
@@ -71,17 +52,8 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            cd github/larapeak.com
+            cd ${{ env.baseDir }}
+            ln -s ~/github/larapeak/releases/${{ env.releaseName }} current
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
-            
-      - name: ⬆️ Website up
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          password: ${{ secrets.SSH_PASSWORD }}
-          script: |
-            cd github/larapeak.com
-            php artisan up
