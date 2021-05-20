@@ -51,7 +51,7 @@ jobs:
             cd ${{ env.baseDir }}/releases/${{ env.releaseName }}
             ln -s ~/github/larapeak/persistent/.env .env
             
-      - name: 🙏 Bless release
+      - name: 🙏 Bless releas
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
