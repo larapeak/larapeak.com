@@ -45,6 +45,7 @@ jobs:
             # Remove the storage directory and replace with persistent data
             rm -rf ${{ env.baseDir }}/releases/${{ env.releaseName }}/storage
             cd ${{ env.baseDir }}/releases/${{ env.releaseName }}
+            ln -s ~/github/larapeak/persistent/storage storage
 
             # Import the environment config
             ln -s ~/github/larapeak/persistent/.env .env
