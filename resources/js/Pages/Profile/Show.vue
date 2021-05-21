@@ -7,7 +7,7 @@
         </template>
 
         <div>
-            <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 sm:py-12 lg:px-8">
                 <div v-if="$page.props.jetstream.canUpdateProfileInformation">
                     <update-profile-information-form :user="$page.props.user" />
 

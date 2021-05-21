@@ -6,7 +6,7 @@
             </h2>
         </template>
 
-        <div class="px-4 py-12 sm:px-0">
+        <div class="px-4 py-6 sm:py-12 sm:px-0">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="overflow-x-auto bg-white rounded-md shadow">
                     <data-table :tableData="users" :tableFields="tableFields" model="users" :filters="filters" />
