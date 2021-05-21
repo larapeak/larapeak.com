@@ -1,38 +1,41 @@
 <template>
-    <jet-authentication-card>
-        <template #logo>
-            <jet-authentication-card-logo />
-        </template>
-
-        <div class="mb-4 text-sm text-gray-600">
-            Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.
+    <div class="flex flex-col items-center min-h-screen pt-6 bg-gray-100 sm:justify-center sm:pt-0">
+        <div>
+            <inertia-link :href="'/'">
+                <svg class="w-16 h-16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.395 44.428C4.557 40.198 0 32.632 0 24 0 10.745 10.745 0 24 0a23.891 23.891 0 0113.997 4.502c-.2 17.907-11.097 33.245-26.602 39.926z" fill="#6875F5"/>
+                    <path d="M14.134 45.885A23.914 23.914 0 0024 48c13.255 0 24-10.745 24-24 0-3.516-.756-6.856-2.115-9.866-4.659 15.143-16.608 27.092-31.75 31.751z" fill="#6875F5"/>
+                </svg>
+            </inertia-link>
         </div>
 
-        <div class="mb-4 text-sm font-medium text-green-600" v-if="verificationLinkSent" >
-            A new verification link has been sent to the email address you provided during registration.
-        </div>
-
-        <form @submit.prevent="submit">
-            <div class="flex items-center justify-between mt-4">
-                <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Resend Verification Email
-                </jet-button>
-
-                <inertia-link :href="route('logout')" method="post" as="button" class="text-sm text-gray-600 underline hover:text-gray-900">Log Out</inertia-link>
+        <div class="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-md sm:rounded-lg">
+            <div class="mb-4 text-sm text-gray-600">
+                Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.
             </div>
-        </form>
-    </jet-authentication-card>
+
+            <div class="mb-4 text-sm font-medium text-green-600" v-if="verificationLinkSent" >
+                A new verification link has been sent to the email address you provided during registration.
+            </div>
+
+            <form @submit.prevent="submit">
+                <div class="flex items-center justify-between mt-4">
+                    <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                        Resend Verification Email
+                    </jet-button>
+
+                    <inertia-link :href="route('logout')" method="post" as="button" class="text-sm text-gray-600 underline hover:text-gray-900">Log Out</inertia-link>
+                </div>
+            </form>
+        </div>
+    </div>
 </template>
 
 <script>
-    import JetAuthenticationCard from '@/Shared/AuthenticationCard'
-    import JetAuthenticationCardLogo from '@/Shared/AuthenticationCardLogo'
     import JetButton from '@/Shared/Buttons/Button'
 
     export default {
         components: {
-            JetAuthenticationCard,
-            JetAuthenticationCardLogo,
             JetButton,
         },
 

@@ -137,12 +137,12 @@
 </template>
 
 <script>
-    import JetApplicationMark from '@/Shared/ApplicationMark'
-    import JetBanner from '@/Shared/Banner'
-    import JetDropdown from '@/Shared/Dropdown'
-    import JetDropdownLink from '@/Shared/DropdownLink'
-    import JetNavLink from '@/Shared/NavLink'
-    import JetResponsiveNavLink from '@/Shared/ResponsiveNavLink'
+    import JetApplicationMark from '@/Shared/Logo/ApplicationMark'
+    import JetBanner from '@/Shared/Messages/Banner'
+    import JetDropdown from '@/Shared//Dropdown/Dropdown'
+    import JetDropdownLink from '@/Shared/Dropdown/DropdownLink'
+    import JetNavLink from './NavLinks/NavLink'
+    import JetResponsiveNavLink from './NavLinks/ResponsiveNavLink'
 
     export default {
         components: {

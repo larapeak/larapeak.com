@@ -6,9 +6,9 @@
             </h2>
         </template>
 
-        <div class="px-4 py-12 sm:px-0">
+        <div class="px-4 py-6 sm:py-12 sm:px-0">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <div class="grid grid-cols-2 gap-16">
+                <div class="grid grid-cols-2 gap-4 sm:gap-6">
                     <inertia-link :href="route('users.index')" class="relative p-6 overflow-hidden text-white transition duration-300 transform bg-green-500 rounded-md hover:scale-105">
                         <span class="text-5xl font-black">{{ users_count }}</span>
                         <h2 class="text-3xl font-extrabold">User(s)</h2>
