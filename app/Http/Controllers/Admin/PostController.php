@@ -50,6 +50,7 @@ class PostController extends Controller
     {
         $post->title = $request->title;
         $post->body = $request->body;
+        $post->slug = $request->slug;
         
         $post->save();
 
