@@ -87,7 +87,7 @@
 </template>
 
 <script>
-    import JetActionMessage from '@/Shared/ActionMessage'
+    import JetActionMessage from '@/Shared/Messages/ActionMessage'
     import JetActionSection from '@/Shared/ActionSection'
     import JetButton from '@/Shared/Buttons/Button'
     import JetDialogModal from '@/Shared/DialogModal'

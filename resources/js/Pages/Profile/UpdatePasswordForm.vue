@@ -41,7 +41,7 @@
 </template>
 
 <script>
-    import JetActionMessage from '@/Shared/ActionMessage'
+    import JetActionMessage from '@/Shared/Messages/ActionMessage'
     import JetButton from '@/Shared/Buttons/Button'
     import JetFormSection from '@/Shared/FormSection'
     import JetInput from '@/Shared/FormFields/Input'

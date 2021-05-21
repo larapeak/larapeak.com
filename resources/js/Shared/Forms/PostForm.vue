@@ -52,7 +52,7 @@
     import JetInputError from '@/Shared/InputError'
     import JetLabel from '@/Shared/FormFields/Label'
     import MarkdownEditor from '@/Shared/FormFields/MarkdownEditor'
-    import JetActionMessage from '@/Shared/ActionMessage'
+    import JetActionMessage from '@/Shared/Messages/ActionMessage'
 
     export default {
         props: ['formMethod', 'formRoute', 'post'],

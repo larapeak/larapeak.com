@@ -74,7 +74,7 @@
     import JetInput from '@/Shared/FormFields/Input'
     import JetInputError from '@/Shared/InputError'
     import JetLabel from '@/Shared/FormFields/Label'
-    import JetActionMessage from '@/Shared/ActionMessage'
+    import JetActionMessage from '@/Shared/Messages/ActionMessage'
     import JetSecondaryButton from '@/Shared/Buttons/SecondaryButton'
 
     export default {
