@@ -139,8 +139,8 @@
 <script>
     import JetApplicationMark from '@/Shared/Logo/ApplicationMark'
     import JetBanner from '@/Shared/Messages/Banner'
-    import JetDropdown from '@/Shared/Dropdown'
-    import JetDropdownLink from '@/Shared/DropdownLink'
+    import JetDropdown from '@/Shared//Dropdown/Dropdown'
+    import JetDropdownLink from '@/Shared/Dropdown/DropdownLink'
     import JetNavLink from '@/Shared/Navigation/NavLink'
     import JetResponsiveNavLink from '@/Shared/Navigation/ResponsiveNavLink'
 
