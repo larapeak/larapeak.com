@@ -92,7 +92,7 @@
     import JetButton from '@/Shared/Buttons/Button'
     import JetDialogModal from '@/Shared/DialogModal'
     import JetInput from '@/Shared/FormFields/Input'
-    import JetInputError from '@/Shared/InputError'
+    import JetInputError from '@/Shared/FormFields/InputError'
     import JetSecondaryButton from '@/Shared/Buttons/SecondaryButton'
 
     export default {

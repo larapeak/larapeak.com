@@ -39,7 +39,7 @@
     import JetButton from './Buttons/Button'
     import JetDialogModal from './DialogModal'
     import JetInput from './FormFields/Input'
-    import JetInputError from './InputError'
+    import JetInputError from './FormFields/InputError'
     import JetSecondaryButton from './Buttons/SecondaryButton'
 
     export default {

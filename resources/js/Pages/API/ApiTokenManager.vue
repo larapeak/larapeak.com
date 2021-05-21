@@ -173,7 +173,7 @@
     import JetFormSection from '@/Shared/FormFields/Section/FormSection'
     import JetInput from '@/Shared/FormFields/Input'
     import JetCheckbox from '@/Shared/FormFields/Checkbox'
-    import JetInputError from '@/Shared/InputError'
+    import JetInputError from '@/Shared/FormFields/InputError'
     import JetLabel from '@/Shared/FormFields/Label'
     import JetSecondaryButton from '@/Shared/Buttons/SecondaryButton'
     import JetSectionBorder from '@/Shared/FormFields/Section/SectionBorder'

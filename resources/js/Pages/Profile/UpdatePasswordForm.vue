@@ -45,7 +45,7 @@
     import JetButton from '@/Shared/Buttons/Button'
     import JetFormSection from '@/Shared/FormFields/Section/FormSection'
     import JetInput from '@/Shared/FormFields/Input'
-    import JetInputError from '@/Shared/InputError'
+    import JetInputError from '@/Shared/FormFields/InputError'
     import JetLabel from '@/Shared/FormFields/Label'
 
     export default {

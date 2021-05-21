@@ -40,7 +40,7 @@
     import JetDialogModal from '@/Shared/DialogModal'
     import JetDangerButton from '@/Shared/Buttons/DangerButton'
     import JetInput from '@/Shared/FormFields/Input'
-    import JetInputError from '@/Shared/InputError'
+    import JetInputError from '@/Shared/FormFields/InputError'
     import JetSecondaryButton from '@/Shared/Buttons/SecondaryButton'
 
     export default {
