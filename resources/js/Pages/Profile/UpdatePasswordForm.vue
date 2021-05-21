@@ -43,7 +43,7 @@
 <script>
     import JetActionMessage from '@/Shared/Messages/ActionMessage'
     import JetButton from '@/Shared/Buttons/Button'
-    import JetFormSection from '@/Shared/FormSection'
+    import JetFormSection from '@/Shared/FormFields/Section/FormSection'
     import JetInput from '@/Shared/FormFields/Input'
     import JetInputError from '@/Shared/InputError'
     import JetLabel from '@/Shared/FormFields/Label'

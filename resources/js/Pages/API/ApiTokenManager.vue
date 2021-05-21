@@ -170,13 +170,13 @@
     import JetConfirmationModal from '@/Shared/ConfirmationModal'
     import JetDangerButton from '@/Shared/Buttons/DangerButton'
     import JetDialogModal from '@/Shared/DialogModal'
-    import JetFormSection from '@/Shared/FormSection'
+    import JetFormSection from '@/Shared/FormFields/Section/FormSection'
     import JetInput from '@/Shared/FormFields/Input'
     import JetCheckbox from '@/Shared/Checkbox'
     import JetInputError from '@/Shared/InputError'
     import JetLabel from '@/Shared/FormFields/Label'
     import JetSecondaryButton from '@/Shared/Buttons/SecondaryButton'
-    import JetSectionBorder from '@/Shared/SectionBorder'
+    import JetSectionBorder from '@/Shared/FormFields/Section/SectionBorder'
 
     export default {
         components: {

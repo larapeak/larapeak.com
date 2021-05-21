@@ -41,7 +41,7 @@
 <script>
     import AppLayout from '@/Layouts/AppLayout'
     import DeleteUserForm from './DeleteUserForm'
-    import JetSectionBorder from '@/Shared/SectionBorder'
+    import JetSectionBorder from '@/Shared/FormFields/Section/SectionBorder'
     import LogoutOtherBrowserSessionsForm from './LogoutOtherBrowserSessionsForm'
     import TwoFactorAuthenticationForm from './TwoFactorAuthenticationForm'
     import UpdatePasswordForm from './UpdatePasswordForm'
