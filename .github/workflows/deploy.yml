@@ -80,7 +80,7 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
             cd ${{ env.baseDir }}
-            ln -s ~/github/larapeak/releases/${{ env.releaseName }} current
+            ln -nfs ~/github/larapeak/releases/${{ env.releaseName }} current
             cd current
             php artisan config:clear
             php artisan config:cache
