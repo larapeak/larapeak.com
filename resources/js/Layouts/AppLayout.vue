@@ -137,7 +137,7 @@
 </template>
 
 <script>
-    import JetApplicationMark from '@/Shared/ApplicationMark'
+    import JetApplicationMark from '@/Shared/Logo/ApplicationMark'
     import JetBanner from '@/Shared/Messages/Banner'
     import JetDropdown from '@/Shared/Dropdown'
     import JetDropdownLink from '@/Shared/DropdownLink'
