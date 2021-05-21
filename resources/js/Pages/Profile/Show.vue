@@ -8,17 +8,13 @@
 
         <div>
             <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 sm:py-12 lg:px-8">
-                <div v-if="$page.props.jetstream.canUpdateProfileInformation">
-                    <update-profile-information-form :user="$page.props.user" />
+                <update-profile-information-form :user="$page.props.user" />
 
-                    <jet-section-border />
-                </div>
+                <jet-section-border />
 
-                <div v-if="$page.props.jetstream.canUpdatePassword">
-                    <update-password-form class="mt-10 sm:mt-0" />
+                <update-password-form class="mt-10 sm:mt-0" />
 
-                    <jet-section-border />
-                </div>
+                <jet-section-border />
 
                 <logout-other-browser-sessions-form :sessions="sessions" class="mt-10 sm:mt-0" />
             </div>
