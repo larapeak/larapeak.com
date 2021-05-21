@@ -1,9 +1,5 @@
 <template>
     <jet-authentication-card>
-        <template #logo>
-            <jet-authentication-card-logo />
-        </template>
-
         <jet-validation-errors class="mb-4" />
 
         <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
