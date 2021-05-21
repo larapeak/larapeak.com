@@ -33,6 +33,10 @@
                     <jet-input class="block w-full mt-1 mr-4" v-model="form.slug" :error="form.errors.slug" placeholder="Slug will be generated..." type="text" :class="{ 'opacity-50': form.processing || !formMethod }" :disabled="form.processing || !formMethod"/>
                     <jet-input-error :message="form.errors.slug" class="mt-1" />
                 </div>
+
+                <div v-if="formMethod">
+                    <delete-post-form :post="post" class="w-full" />
+                </div>
             </div>
         </div>
     </form>
@@ -40,6 +44,8 @@
 
 <script>
     import { useForm } from '@inertiajs/inertia-vue3'
+
+    import DeletePostForm from '@/Pages/Posts/DeletePostForm'
 
     import JetButton from '@/Shared/Buttons/Button'
     import JetInput from '@/Shared/FormFields/Input'
@@ -52,6 +58,7 @@
         props: ['formMethod', 'formRoute', 'post'],
         
         components: {
+            DeletePostForm,
             JetButton,
             JetInput,
             JetInputError,

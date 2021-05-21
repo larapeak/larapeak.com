@@ -33,10 +33,9 @@ class PostController extends Controller
         $post = Auth::user()
                     ->posts()
                     ->create($request->validated());
-        
-        session()->flash('flash.banner', 'Post is created!');
 
-        return redirect()->route('posts.edit', $post->slug);
+        return redirect()->route('posts.edit', $post->slug)
+                            ->with('flash.banner', 'Post is created!');
     }
 
     public function edit(Post $post)
@@ -59,7 +58,10 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('posts.index')
+                            ->with('flash.banner', 'Post is deleted!');
     }
 
     public function publish(Post $post, PublishPostAction $publishPostAction)
