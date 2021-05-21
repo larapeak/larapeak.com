@@ -26,13 +26,11 @@
 
 <script>
     import JetAuthenticationCard from '@/Shared/AuthenticationCard'
-    import JetAuthenticationCardLogo from '@/Shared/AuthenticationCardLogo'
     import JetButton from '@/Shared/Buttons/Button'
 
     export default {
         components: {
             JetAuthenticationCard,
-            JetAuthenticationCardLogo,
             JetButton,
         },
 

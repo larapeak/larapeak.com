@@ -54,7 +54,6 @@
 
 <script>
     import JetAuthenticationCard from '@/Shared/AuthenticationCard'
-    import JetAuthenticationCardLogo from '@/Shared/AuthenticationCardLogo'
     import JetButton from '@/Shared/Buttons/Button'
     import JetInput from '@/Shared/FormFields/Input'
     import JetCheckbox from "@/Shared/FormFields/Checkbox";
@@ -64,7 +63,6 @@
     export default {
         components: {
             JetAuthenticationCard,
-            JetAuthenticationCardLogo,
             JetButton,
             JetInput,
             JetCheckbox,
