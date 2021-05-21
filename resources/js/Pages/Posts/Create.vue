@@ -16,20 +16,59 @@
 
         <div class="px-4 py-12 sm:px-0">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <post-form formRoute="/admin/posts" post="" />
+                <form @submit.prevent="form.post('/admin/posts')">
+                    <div class="flex items-center justify-end">                        
+                        <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                            Save
+                        </jet-button>
+                    </div>
+
+                    <div class="mb-6">
+                        <jet-label class="mb-3" value="Title:" />
+                        <jet-input class="block w-full mt-1 mr-4" v-model="form.title" :error="form.errors.title" placeholder="Title..." type="text" :class="{ 'opacity-50': form.processing }" :disabled="form.processing" />
+                        <jet-input-error :message="form.errors.title" class="mt-1" />
+                    </div>
+                    
+                    <div>
+                        <jet-label class="mb-3" value="Body:" />
+                        <jet-markdown-editor v-model="form.body" />
+                        <jet-input-error :message="form.errors.body" class="mt-1" />
+                    </div>
+                </form>
             </div>
         </div>
     </app-layout>
 </template>
 
 <script>        
+    import { useForm } from '@inertiajs/inertia-vue3'
+
     import AppLayout from '@/Layouts/AppLayout'
-    import PostForm from '@/Shared/Forms/PostForm'
+
+    import JetButton from '@/Shared/Buttons/Button'
+    import JetLabel from '@/Shared/FormFields/Label'
+    import JetInput from '@/Shared/FormFields/Input'
+    import JetInputError from '@/Shared/FormFields/InputError'
+    import JetMarkdownEditor from '@/Shared/FormFields/MarkdownEditor'
 
     export default {
         components: {
+            useForm,
             AppLayout,
-            PostForm,
+            JetButton,
+            JetLabel,
+            JetInput,
+            JetInputError,
+            JetMarkdownEditor,
         },
+
+        setup() {
+            const form = useForm({
+                title: null,
+                body: null,
+            })
+
+            return { form }
+        }
     }
 </script>
