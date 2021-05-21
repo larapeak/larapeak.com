@@ -141,8 +141,8 @@
     import JetBanner from '@/Shared/Messages/Banner'
     import JetDropdown from '@/Shared//Dropdown/Dropdown'
     import JetDropdownLink from '@/Shared/Dropdown/DropdownLink'
-    import JetNavLink from '@/Shared/Navigation/NavLink'
-    import JetResponsiveNavLink from '@/Shared/Navigation/ResponsiveNavLink'
+    import JetNavLink from './NavLinks/NavLink'
+    import JetResponsiveNavLink from './NavLinks/ResponsiveNavLink'
 
     export default {
         components: {
