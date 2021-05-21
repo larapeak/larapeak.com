@@ -53,7 +53,7 @@
 </template>
 
 <script>
-    import JetActionSection from '@/Shared/ActionSection'
+    import JetActionSection from '@/Shared/FormFields/Section/ActionSection'
     import JetDialogModal from '@/Shared/DialogModal'
     import JetDangerButton from '@/Shared/Buttons/DangerButton'
     import JetInput from '@/Shared/FormFields/Input'

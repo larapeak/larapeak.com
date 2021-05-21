@@ -87,7 +87,7 @@
 </template>
 
 <script>
-    import JetActionSection from '@/Shared/ActionSection'
+    import JetActionSection from '@/Shared/FormFields/Section/ActionSection'
     import JetButton from '@/Shared/Buttons/Button'
     import JetConfirmsPassword from '@/Shared/ConfirmsPassword'
     import JetDangerButton from '@/Shared/Buttons/DangerButton'

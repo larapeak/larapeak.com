@@ -165,7 +165,7 @@
 
 <script>
     import JetActionMessage from '@/Shared/Messages/ActionMessage'
-    import JetActionSection from '@/Shared/ActionSection'
+    import JetActionSection from '@/Shared/FormFields/Section/ActionSection'
     import JetButton from '@/Shared/Buttons/Button'
     import JetConfirmationModal from '@/Shared/ConfirmationModal'
     import JetDangerButton from '@/Shared/Buttons/DangerButton'
