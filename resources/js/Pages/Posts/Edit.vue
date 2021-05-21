@@ -10,14 +10,11 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
                     </svg>
-                    
-                    Edit Post
-                </h2>
 
-                <div v-if="post.published == 1" class="flex items-center px-2 py-1 text-xs text-green-900 bg-green-200 rounded-full w-min">
-                    <div class="w-2 h-2 mr-1 bg-green-500 rounded-full"></div>
-                    Published
-                </div>
+                    {{ post.title }}
+
+                    <div v-if="post.published == 1" class="w-2 h-2 ml-4 mr-1 bg-green-500 rounded-full"></div>
+                </h2>
 
                 <jet-secondary-button v-if="post.published == 0" @click="publish" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-auto mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
