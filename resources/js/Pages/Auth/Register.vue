@@ -59,7 +59,7 @@
     import JetInput from '@/Shared/FormFields/Input'
     import JetCheckbox from "@/Shared/FormFields/Checkbox";
     import JetLabel from '@/Shared/FormFields/Label'
-    import JetValidationErrors from '@/Shared/ValidationErrors'
+    import JetValidationErrors from '@/Shared/FormFields/ValidationErrors'
 
     export default {
         components: {
