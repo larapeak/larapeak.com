@@ -47,7 +47,7 @@
     import JetButton from '@/Shared/Buttons/Button'
     import JetInput from '@/Shared/FormFields/Input'
     import JetCheckbox from '@/Shared/Checkbox'
-    import JetLabel from '@/Shared/Label'
+    import JetLabel from '@/Shared/FormFields/Label'
     import JetValidationErrors from '@/Shared/ValidationErrors'
 
     export default {

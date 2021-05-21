@@ -36,7 +36,7 @@
     import JetAuthenticationCardLogo from '@/Shared/AuthenticationCardLogo'
     import JetButton from '@/Shared/Buttons/Button'
     import JetInput from '@/Shared/FormFields/Input'
-    import JetLabel from '@/Shared/Label'
+    import JetLabel from '@/Shared/FormFields/Label'
     import JetValidationErrors from '@/Shared/ValidationErrors'
 
     export default {

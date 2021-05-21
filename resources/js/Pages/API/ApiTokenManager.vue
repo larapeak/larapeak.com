@@ -174,7 +174,7 @@
     import JetInput from '@/Shared/FormFields/Input'
     import JetCheckbox from '@/Shared/Checkbox'
     import JetInputError from '@/Shared/InputError'
-    import JetLabel from '@/Shared/Label'
+    import JetLabel from '@/Shared/FormFields/Label'
     import JetSecondaryButton from '@/Shared/Buttons/SecondaryButton'
     import JetSectionBorder from '@/Shared/SectionBorder'
 

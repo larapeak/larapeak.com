@@ -50,7 +50,7 @@
     import JetButton from '@/Shared/Buttons/Button'
     import JetInput from '@/Shared/FormFields/Input'
     import JetInputError from '@/Shared/InputError'
-    import JetLabel from '@/Shared/Label'
+    import JetLabel from '@/Shared/FormFields/Label'
     import MarkdownEditor from '@/Shared/FormFields/MarkdownEditor'
     import JetActionMessage from '@/Shared/ActionMessage'
 
