@@ -2,7 +2,7 @@
     <app-layout>
         <template #header>
             <h2 class="flex items-center text-xl font-semibold leading-tight text-gray-800">
-                <inertia-link class="transition duration-300 hover:text-indigo-400" :href="route('posts.index')">
+                <inertia-link class="transition duration-300 hover:text-primary" :href="route('posts.index')">
                     All Posts
                 </inertia-link>
 

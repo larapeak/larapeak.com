@@ -9,7 +9,7 @@
         <div class="grid grid-cols-1 gap-16">
             @foreach ($posts as $post)
                 <div>
-                    <div class="h-3 bg-gradient-to-r from-green-300 to-indigo-400 rounded-t-md"></div>
+                    <div class="h-3 bg-gradient-to-r from-yellow-400 to-primary rounded-t-md"></div>
                     <div class="my-3">
                         <p class="mb-3 text-sm font-semibold text-gray-400">
                             {{ $post->published_at->format('M-Y') }}
@@ -22,7 +22,7 @@
                             {{ $post->excerpt }}
                         </p>
 
-                        <a href="{{ route('blog.show', $post->slug) }}" class="font-bold text-blue-600">
+                        <a href="{{ route('blog.show', $post->slug) }}" class="font-bold text-primary">
                             Read article
                         </a>
                     </div>
