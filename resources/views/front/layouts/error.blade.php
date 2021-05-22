@@ -15,7 +15,7 @@
                 @endisset
 
                 @if($homeLink ?? false)
-                    <a href="{{ url('/') }}" class="font-bold underline transition duration-300 hover:text-blue-600">Go home</a>
+                    <a href="{{ url('/') }}" class="font-bold underline transition duration-300 hover:text-primary">Go home</a>
                 @endif
             </p>
         </div>

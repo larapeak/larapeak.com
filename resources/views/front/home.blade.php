@@ -5,7 +5,7 @@
                 Hi There 👋!
             </h1>
             <p class="mt-3 text-lg">
-                Welcome on the <span class="font-medium text-blue-600 underline">Larapeak</span> blog! <br>
+                Welcome on the <span class="font-medium underline text-primary">Larapeak</span> blog! <br>
                 On this blog you can find tutorials about Laravel, Tailwindcss and more!
             </p>
         </div>
@@ -13,7 +13,7 @@
         <div class="grid grid-cols-1 gap-16 sm:grid-cols-2">
             @foreach ($posts as $post)
                 <div>
-                    <div class="h-3 bg-gradient-to-r from-green-300 to-indigo-400 rounded-t-md"></div>
+                    <div class="h-3 bg-gradient-to-r from-yellow-400 to-primary rounded-t-md"></div>
                     <div class="my-3">
                         <p class="mb-3 text-sm font-semibold text-gray-400">
                             {{ $post->published_at->format('M-Y') }}
@@ -26,7 +26,7 @@
                             {{ $post->excerpt }}
                         </p>
 
-                        <a href="{{ route('blog.show', $post->slug) }}" class="font-bold text-blue-600">
+                        <a href="{{ route('blog.show', $post->slug) }}" class="font-bold text-primary">
                             Read article
                         </a>
                     </div>
