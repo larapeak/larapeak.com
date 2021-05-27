@@ -56,8 +56,12 @@ class PostController extends Controller
         return redirect()->route('posts.edit', $post->slug);
     }
 
-    public function destroy(Post $post)
+    public function destroy(Request $request, Post $post)
     {
+        $request->validate([
+            'password' => 'required|string|password',
+        ]);
+
         $post->delete();
 
         return redirect()->route('posts.index')
