@@ -128,7 +128,7 @@
                 </div>
             </header>
 
-            <!-- Page Content -->
+            <!-- Page Contentt -->
             <main>
                 <slot></slot>
             </main>
