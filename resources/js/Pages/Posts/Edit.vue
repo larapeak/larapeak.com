@@ -16,13 +16,23 @@
                     <div v-if="post.published == 1" class="w-2 h-2 ml-4 mr-1 bg-green-500 rounded-full"></div>
                 </h2>
 
-                <publish-post-form :post="post" />
+                <div class="flex items-center">
+                    <publish-post-form :post="post" class="mr-4" />
+
+                    <jet-secondary-button v-on:click="preview" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                        Preview
+                    </jet-secondary-button>
+                </div>
             </div>
         </template>
 
         <div class="px-4 py-12 sm:px-0">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <form @submit.prevent="form.put('/admin/posts/' + this.post.slug)">
+                <form @submit.prevent="save">
                     <div class="flex items-center justify-end">
                         <jet-action-message :on="form.recentlySuccessful" class="mr-3">
                             Saved.
@@ -66,7 +76,7 @@
     </app-layout>
 </template>
 
-<script>     
+<script>    
     import { useForm } from '@inertiajs/inertia-vue3'
 
     import AppLayout from '@/Layouts/AppLayout'
@@ -106,7 +116,18 @@
                 slug: props.post.slug,
             })
 
-            return { form }
+            function preview() {
+                save()
+                
+                window.open('/blog/' + props.post.slug, '_BLANK')
+                
+            }
+
+            function save() {
+                form.put('/admin/posts/' + props.post.slug)
+            }
+
+            return { form, preview, save }
         }
     }
 </script>

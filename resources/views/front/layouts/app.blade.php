@@ -1,5 +1,7 @@
 @include('front.layouts.partials.head')
 
+@include('front.layouts.partials.message')
+
 <div class="flex flex-col min-h-screen text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
     <!-- Main navigation -->
