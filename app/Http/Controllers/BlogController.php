@@ -16,8 +16,16 @@ class BlogController extends Controller
         ]);
     }
 
-    public function show(Post $post)
+    public function show(Request $request, Post $post)
     {
+        if (!$post->published) {
+            $request->session()->now('preview', '');
+        }
+
+        if (!auth()->check() && !$post->published) {
+            abort(404);
+        }
+
         return view('front.blog.show', [
             'post' => $post
         ]);

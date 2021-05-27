@@ -11,9 +11,11 @@
         </a>
 
         <div class="mb-6 sm:mb-12">
-            <p class="mb-3 font-semibold text-gray-400">
-                Published: {{ $post->published_at->format('M d, Y') }}
-            </p>
+            @isset($post->published_at)
+                <p class="mb-3 font-semibold text-gray-400">
+                    Published: {{ $post->published_at->format('M d, Y') }}
+                </p>
+            @endisset
             <h1 class="text-5xl font-bold">
                 {{ $post->title }}
             </h1>
